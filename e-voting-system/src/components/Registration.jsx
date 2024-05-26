@@ -1,11 +1,12 @@
-
+// src/components/Registration.jsx
 import React from "react";
-import vote from '../../assets/vote.jpg';
+import { Link } from "react-router-dom";
+import vote from "../assets/vote.jpg";
 
 export default function Registration() {
   return (
     <div
-      className="min-h-screen py-16"
+      className="min-h-screen py-12"
       style={{ backgroundImage: "linear-gradient(115deg, #9F7AEA, #FEE2FE)" }}
     >
       <div className="container mx-auto">
@@ -76,6 +77,9 @@ export default function Registration() {
                 <button className="w-full bg-purple-400 py-3 text-center text-white font-medium">
                   Register Now
                 </button>
+                <p className="text-gray-500 font-light mt-1">
+                  Already have an account? <Link to="/login">Login</Link>
+                </p>
               </div>
             </form>
           </div>
