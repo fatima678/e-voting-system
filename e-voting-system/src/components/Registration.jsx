@@ -1,9 +1,32 @@
-// src/components/Registration.jsx
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import vote from "../assets/vote.jpg";
 
 export default function Registration() {
+  // State to manage form inputs
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
+
+  // Handle change in input fields
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+
   return (
     <div
       className="min-h-screen py-12"
@@ -30,38 +53,53 @@ export default function Registration() {
             <p className="mb-4 text-gray-500 font-light">
               Create your account. It's free and only takes a minute
             </p>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-2 gap-3">
                 <input
                   type="text"
+                  name="firstName"
                   placeholder="First Name"
                   className="border border-gray-400 py-1 px-2"
+                  value={formData.firstName}
+                  onChange={handleChange}
                 />
                 <input
                   type="text"
+                  name="lastName"
                   placeholder="Last Name"
                   className="border border-gray-400 py-1 px-2"
+                  value={formData.lastName}
+                  onChange={handleChange}
                 />
               </div>
               <div className="mt-4">
                 <input
                   type="text"
+                  name="email"
                   placeholder="Email"
                   className="border border-gray-400 py-1 px-2 w-full"
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </div>
               <div className="mt-4">
                 <input
                   type="password"
+                  name="password"
                   placeholder="Password"
                   className="border border-gray-400 py-1 px-2 w-full"
+                  value={formData.password}
+                  onChange={handleChange}
                 />
               </div>
               <div className="mt-4">
                 <input
                   type="password"
+                  name="confirmPassword"
                   placeholder="Confirm Password"
                   className="border border-gray-400 py-1 px-2 w-full"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
                 />
               </div>
               <div className="mt-2">
@@ -74,7 +112,10 @@ export default function Registration() {
                 </span>
               </div>
               <div className="mt-5">
-                <button className="w-full bg-purple-400 py-3 text-center text-white font-medium">
+                <button
+                  type="submit"
+                  className="w-full bg-purple-400 py-3 text-center text-white font-medium"
+                >
                   Register Now
                 </button>
                 <p className="text-gray-500 font-light mt-1">
