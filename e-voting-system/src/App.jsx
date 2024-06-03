@@ -3,9 +3,12 @@ import Navbar from './components/Navbar'; // Import the Navbar component
 import Registration from './components/Registration';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard'; 
-import CandidatesList from "./components/CandidatesList";
+// import CandidatesList from "./components/CandidatesList";
 import AboutUs from './components/AboutUs';
-import ContactUs from './ContactUs';
+import ContactUs from './components/ContactUs';
+import Services from './components/Services';
+import CandidateProfile from './components/CandidateProfile';
+import CandidateRegistration from './components/CandidateRegistration';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -17,13 +20,15 @@ function App() {
       {/* Routes */}
       <Routes>
         <Route path="/" element={<Registration />} />
+        <Route path="candidateRegistration" element={<CandidateRegistration />} />
         <Route path="/login" element={<Login />} />
-        
         <Route path="/dashboard" element={<Dashboard />} /> 
-        <Route path="/candidatesList" element={<CandidatesList />} /> 
+        {/* <Route path="/candidatesList" element={<CandidatesList />} />  */}
         <Route path="/aboutUs" element={<AboutUs />} /> 
-        {/* <Route path="/contactUs" element={<ContactUs />} />  */}
-        
+        <Route path="/contactUs" element={<ContactUs />} /> 
+        <Route path="/services" element={<Services />} /> 
+        <Route path="/profile/:id" element={<CandidateProfile />} />
+
       </Routes>
     </Router>
   );

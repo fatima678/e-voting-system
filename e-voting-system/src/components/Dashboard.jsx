@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const cards = [
-  { title: "Candidates Profile" , description: "Candidates Details", path: "/candidatesList" },
+  { title: "Candidates Profile", description: "Candidates Details", path: "/candidatesList" },
   { title: "Vote Casting", description: "Description for Vote Casting", path: "/vote-casting" },
   { title: "Results", description: "Description for Results", path: "/results" },
   { title: "Statistics", description: "Description for Statistics", path: "/statistics" },
@@ -19,6 +19,19 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-400 p-4">
+      {/* Assuming there is a Navbar component */}
+      {/* <Navbar /> */}
+      
+      {/* Image below the navbar */}
+      <div className="flex justify-center my-4">
+        <img
+          src="/src/assets/voteimg.jpg"
+          alt="Descriptive Alt Text"
+          className="rounded-lg shadow-lg h-100 w-full max-w-screen-lg object-cover"
+        />
+      </div>
+
+      {/* Card grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
         {cards.map((card, index) => (
           <div
